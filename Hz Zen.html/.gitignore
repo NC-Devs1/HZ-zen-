@@ -1,0 +1,68 @@
+# ── OS ──────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ── Node ─────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log
+.npm/
+.yarn/
+package-lock.json
+
+# ── Dev tools ────────────────────────────────────────
+.tmp/
+tmp/
+temporary screenshots/
+*.mjs.map
+
+# ── Media (large video/audio — track in LFS or CDN) ──
+media/*.mp4
+media/*.webm
+media/*.mov
+media/*.m4v
+media/*.mp3
+media/*.wav
+media/*.ogg
+media/*.flac
+
+# ── Secrets ──────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+credentials.json
+token.json
+*.pem
+*.key
+
+# ── Build outputs ─────────────────────────────────────
+dist/
+build/
+out/
+
+# ── Editor / IDE ─────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── Pages source files (binary) ──────────────────────
+*.pages
+
+# ── Screenshots / temp exports ───────────────────────
+*.png
+*.jpg
+*.jpeg
+!HZ-Zen logo.png
+!brand_assets/**
+
+# ── Puppeteer cache ──────────────────────────────────
+.cache/

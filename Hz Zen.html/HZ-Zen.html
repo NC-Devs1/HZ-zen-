@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HZ-Zen — Find Your Harmony, Every Day</title>
+  <meta name="description" content="Immersive binaural beats, nature sounds, and guided meditations to release tension, sharpen focus, and restore calm.">
+  <meta property="og:title" content="HZ-Zen — Find Your Harmony, Every Day">
+  <meta property="og:description" content="Sound therapy & meditation platform powered by frequency science.">
+  <meta name="theme-color" content="#02060E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,200..900,0..100,0..1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       HZ-ZEN DESIGN SYSTEM — Embedded Tokens
+    ═══════════════════════════════════════════════════════ */
+    :root {
+      --navy-950: #02060E;
+      --navy-900: #060E1C;
+      --navy-850: #0A1628;
+      --navy-800: #0F1F38;
+      --navy-700: #17304F;
+      --navy-600: #1E3E66;
+      --navy-500: #2D5687;
+
+      --teal-300: #7DF5E4;
+      --teal-400: #3DDAC5;
+      --teal-500: #14B8A6;
+      --teal-600: #0E8F82;
+      --teal-700: #0A6860;
+
+      --cyan-300: #67E8F9;
+      --cyan-400: #22D3EE;
+      --cyan-500: #06B6D4;
+      --cyan-600: #0891B2;
+
+      --violet-300: #C4B5FD;
+      --violet-400: #A78BFA;
+      --violet-500: #8B5CF6;
+      --violet-600: #7C3AED;
+
+      --peach-400: #FDBA74;
+      --peach-500: #FB923C;
+
+      --slate-50:  #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-300: #CBD5E1;
+      --slate-400: #94A3B8;
+      --slate-500: #64748B;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1E293B;
+      --slate-900: #0F172A;
+
+      --bg:        var(--navy-950);
+      --fg:        var(--slate-100);
+      --fg-muted:  var(--slate-400);
+      --fg-dim:    var(--slate-500);
+      --fg-brand:  var(--teal-400);
+      --border:    rgba(20,184,166,0.12);
+      --border-strong: rgba(20,184,166,0.28);
+
+      --gradient-aurora: linear-gradient(135deg, #3DDAC5 0%, #22D3EE 45%, #8B5CF6 100%);
+      --gradient-brand:  linear-gradient(135deg, #14B8A6 0%, #0891B2 100%);
+      --gradient-card:   linear-gradient(145deg, #0F1F38 0%, #0A1628 100%);
+      --gradient-glass:  linear-gradient(135deg, rgba(20,184,166,0.08) 0%, rgba(34,211,238,0.04) 100%);
+
+      --scene-bg:
+        radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(20,184,166,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 20%,  rgba(6,182,212,0.08)  0%, transparent 55%),
+        radial-gradient(ellipse 55% 50% at 85% 95%,  rgba(139,92,246,0.10) 0%, transparent 60%),
+        #02060E;
+
+      --font-display: 'Fraunces', 'Cormorant Garamond', ui-serif, Georgia, serif;
+      --font-body:    'Inter', ui-sans-serif, system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+      --radius-sm:   8px;
+      --radius-md:   12px;
+      --radius-lg:   16px;
+      --radius-xl:   20px;
+      --radius-2xl:  28px;
+      --radius-pill: 999px;
+
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(20,184,166,0.08);
+      --shadow-card-hover: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(20,184,166,0.25), 0 0 40px rgba(20,184,166,0.08);
+      --glow-teal:   0 0 60px rgba(20,184,166,0.35);
+      --glow-aurora: 0 0 40px rgba(20,184,166,0.20), 0 0 80px rgba(139,92,246,0.15);
+
+      --shadow-btn:       0 4px 20px rgba(20,184,166,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
+      --shadow-btn-hover: 0 8px 30px rgba(20,184,166,0.45), inset 0 1px 0 rgba(255,255,255,0.10);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-std: cubic-bezier(0.4, 0, 0.2, 1);
+
+      --nav-height: 64px;
+      --blur-glass: 20px;
+    }
+
+    /* ─── Reset / Base ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--fg-muted);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Film grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    /* ─── Scrollbar ──────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy-950); }
+    ::-webkit-scrollbar-thumb { background: rgba(20,184,166,0.25); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(20,184,166,0.45); }
+
+    /* ═══════════════════════════════════════════════════════
+       VIDEO SECTION BASE
+    ═══════════════════════════════════════════════════════ */
+    .video-section {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-bg-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .video-bg-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 2s ease;
+    }
+
+    /* CSS animated gradient fallback shown when no video src */
+    .video-bg-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--scene-bg);
+      animation: scene-drift 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes scene-drift {
+      0%   { filter: hue-rotate(0deg) brightness(1); }
+      100% { filter: hue-rotate(15deg) brightness(1.05); }
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to bottom, rgba(2,6,14,0.55) 0%, rgba(2,6,14,0.30) 50%, rgba(2,6,14,0.72) 100%);
+    }
+
+    .video-section > *:not(.video-bg-wrap) {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       AMBIENT FLOATING BLOBS
+    ═══════════════════════════════════════════════════════ */
+    .blobs { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(72px);
+      animation: blob-drift 18s ease-in-out infinite;
+    }
+    .blob-1 { width: 500px; height: 500px; background: rgba(20,184,166,0.07);  top: -120px; left: -100px; animation-delay: 0s; }
+    .blob-2 { width: 400px; height: 400px; background: rgba(6,182,212,0.06);   top: 30%; right: -80px; animation-delay: -6s; }
+    .blob-3 { width: 350px; height: 350px; background: rgba(139,92,246,0.05);  bottom: 10%; left: 20%; animation-delay: -12s; }
+
+    @keyframes blob-drift {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      33%       { transform: translate(30px,-40px) scale(1.05); }
+      66%       { transform: translate(-20px,20px) scale(0.97); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       LIQUID-GLASS CARD
+    ═══════════════════════════════════════════════════════ */
+    .glass {
+      background: rgba(15,31,56,0.55);
+      -webkit-backdrop-filter: blur(var(--blur-glass));
+      backdrop-filter: blur(var(--blur-glass));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      transition:
+        transform 0.35s var(--ease-out),
+        box-shadow 0.35s var(--ease-out),
+        border-color 0.35s;
+    }
+    .glass:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--border-strong);
+    }
+
+    .card {
+      background: var(--gradient-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      transition:
+        transform 0.35s var(--ease-out),
+        box-shadow 0.35s var(--ease-out),
+        border-color 0.35s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--border-strong);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════════════════ */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: var(--gradient-brand);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: var(--shadow-btn);
+      transition:
+        transform 0.2s var(--ease-out),
+        box-shadow 0.2s var(--ease-out),
+        opacity 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-btn-hover); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 2px solid var(--teal-400); outline-offset: 3px; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: rgba(20,184,166,0.06);
+      color: var(--slate-400);
+      border: 1px solid rgba(20,184,166,0.15);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s var(--ease-out);
+    }
+    .btn-ghost:hover { background: rgba(20,184,166,0.12); color: var(--slate-200); border-color: rgba(20,184,166,0.3); transform: translateY(-1px); }
+    .btn-ghost:active { transform: translateY(0); }
+    .btn-ghost:focus-visible { outline: 2px solid var(--teal-400); outline-offset: 3px; }
+
+    /* ═══════════════════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      height: var(--nav-height);
+      background: rgba(2,6,14,0.72);
+      -webkit-backdrop-filter: blur(var(--blur-glass));
+      backdrop-filter: blur(var(--blur-glass));
+      border-bottom: 1px solid rgba(20,184,166,0.08);
+      transition: background 0.3s;
+    }
+    .nav.scrolled {
+      background: rgba(2,6,14,0.92);
+      border-bottom-color: rgba(20,184,166,0.14);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      width: 38px; height: 38px;
+      border-radius: 23%;
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(20,184,166,0.25);
+    }
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--slate-100);
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-link {
+      position: relative;
+      color: var(--slate-500);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gradient-brand);
+      transition: width 0.3s var(--ease-out);
+    }
+    .nav-link:hover { color: var(--slate-200); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid var(--teal-400); outline-offset: 4px; border-radius: 2px; }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .mobile-menu-btn {
+      display: none;
+      background: none; border: none;
+      color: var(--slate-400); cursor: pointer;
+      font-size: 1.5rem;
+      padding: 0.25rem;
+      transition: color 0.2s;
+    }
+    .mobile-menu-btn:hover { color: var(--slate-200); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-subscribe-desktop { display: none !important; }
+      .mobile-menu-btn { display: block; }
+    }
+
+    #mobileMenu {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0;
+      z-index: 899;
+      background: rgba(2,6,14,0.98);
+      border-bottom: 1px solid rgba(20,184,166,0.12);
+      -webkit-backdrop-filter: blur(var(--blur-glass));
+      backdrop-filter: blur(var(--blur-glass));
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transform: translateY(-110%);
+      transition: transform 0.35s var(--ease-out);
+    }
+    #mobileMenu.open { transform: translateY(0); }
+    .mobile-nav-link {
+      color: var(--slate-400);
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(20,184,166,0.06);
+      transition: color 0.2s;
+    }
+    .mobile-nav-link:hover { color: var(--teal-400); }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════════════════ */
+    #hero {
+      padding-top: var(--nav-height);
+      padding-bottom: 5rem;
+    }
+
+    /* Pulse rings */
+    .pulse-rings {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .pulse-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      animation: ring-pulse 3s ease-in-out infinite;
+    }
+    .pulse-ring-1 { background: rgba(20,184,166,0.06); transform: scale(2.8); }
+    .pulse-ring-2 { background: rgba(20,184,166,0.08); transform: scale(2.1); animation-delay: 0.8s; }
+    .pulse-ring-3 { background: rgba(20,184,166,0.10); transform: scale(1.5); animation-delay: 1.6s; }
+    @keyframes ring-pulse {
+      0%, 100% { transform: scale(var(--s, 1)); opacity: 0.6; }
+      50%       { transform: scale(calc(var(--s, 1) * 1.06)); opacity: 0.3; }
+    }
+    .pulse-ring-1 { --s: 2.8; }
+    .pulse-ring-2 { --s: 2.1; }
+    .pulse-ring-3 { --s: 1.5; }
+    .pulse-logo {
+      position: relative;
+      width: 7rem; height: 7rem;
+      border-radius: 23%;
+      object-fit: cover;
+      z-index: 2;
+      box-shadow: 0 0 60px rgba(20,184,166,0.25), 0 8px 32px rgba(0,0,0,0.55);
+    }
+
+    /* Word reveal */
+    .word-wrap { overflow: hidden; display: inline-block; padding-bottom: .12em; margin-bottom: -.12em; }
+    .word {
+      display: inline-block;
+      transform: translateY(110%);
+      opacity: 0;
+      animation: word-reveal 0.8s var(--ease-out) forwards;
+    }
+    @keyframes word-reveal {
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-400);
+      animation: word-reveal 0.6s var(--ease-out) 0.1s both;
+      opacity: 0;
+    }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-variation-settings: "SOFT" 50, "WONK" 0;
+      font-size: clamp(3rem, 7vw + 1rem, 6rem);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--slate-100);
+    }
+    .hero-gradient-text {
+      font-style: italic;
+      background: var(--gradient-aurora);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--slate-400);
+      max-width: 32rem;
+      text-align: center;
+      line-height: 1.75;
+      animation: word-reveal 0.7s var(--ease-out) 0.8s both;
+      opacity: 0;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      animation: word-reveal 0.7s var(--ease-out) 1.0s both;
+      opacity: 0;
+    }
+    .hero-ctas .btn-primary, .hero-ctas .btn-ghost { padding: 0.85rem 2rem; font-size: 0.95rem; }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.375rem;
+      color: var(--teal-600);
+      animation: word-reveal 0.7s var(--ease-out) 1.4s both, scroll-bob 2s ease-in-out 2.1s infinite;
+      opacity: 0;
+    }
+    .scroll-hint span { font-size: 0.68rem; color: var(--slate-500); letter-spacing: 0.2em; text-transform: uppercase; }
+    .scroll-hint i { font-size: 1.1rem; }
+    @keyframes scroll-bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50%       { transform: translateX(-50%) translateY(6px); opacity: 0.5; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CAPABILITIES SECTION
+    ═══════════════════════════════════════════════════════ */
+    #capabilities {
+      padding: 0;
+    }
+    .caps-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+    }
+    .caps-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cyan-400);
+    }
+    .caps-h2 {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-size: clamp(2rem, 4vw + 1rem, 3.75rem);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--slate-100);
+      text-align: center;
+      max-width: 36rem;
+    }
+    .caps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      width: 100%;
+    }
+    @media (min-width: 900px) {
+      .caps-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .caps-grid { grid-template-columns: 1fr; }
+    }
+    .cap-card {
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-decoration: none;
+    }
+    .cap-icon {
+      width: 3rem; height: 3rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .cap-icon-teal   { background: rgba(20,184,166,0.12);  color: var(--teal-400);   box-shadow: 0 0 20px rgba(20,184,166,0.15); }
+    .cap-icon-cyan   { background: rgba(34,211,238,0.10);  color: var(--cyan-400);   box-shadow: 0 0 20px rgba(34,211,238,0.12); }
+    .cap-icon-violet { background: rgba(139,92,246,0.12);  color: var(--violet-400); box-shadow: 0 0 20px rgba(139,92,246,0.15); }
+    .cap-icon-peach  { background: rgba(251,146,60,0.10);  color: var(--peach-400);  box-shadow: 0 0 20px rgba(251,146,60,0.12); }
+    .cap-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--slate-100);
+      letter-spacing: -0.01em;
+    }
+    .cap-desc {
+      font-size: 0.875rem;
+      color: var(--slate-500);
+      line-height: 1.7;
+    }
+    .cap-badge {
+      align-self: flex-start;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.625rem;
+      border-radius: var(--radius-pill);
+    }
+    .badge-teal   { background: rgba(20,184,166,0.10);  color: var(--teal-300);   border: 1px solid rgba(20,184,166,0.2); }
+    .badge-cyan   { background: rgba(34,211,238,0.08);  color: var(--cyan-300);   border: 1px solid rgba(34,211,238,0.15); }
+    .badge-violet { background: rgba(139,92,246,0.10);  color: var(--violet-300); border: 1px solid rgba(139,92,246,0.2); }
+    .badge-peach  { background: rgba(251,146,60,0.08);  color: var(--peach-400);  border: 1px solid rgba(251,146,60,0.15); }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION SHARED STYLES
+    ═══════════════════════════════════════════════════════ */
+    .section { padding: 6rem 0; position: relative; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(20,184,166,0.2), rgba(139,92,246,0.1), transparent);
+    }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-400);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .section-h2 {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--slate-100);
+      margin-bottom: 1rem;
+    }
+    .section-lead {
+      font-size: 1rem;
+      color: var(--slate-400);
+      max-width: 32rem;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SOUNDS GRID
+    ═══════════════════════════════════════════════════════ */
+    .sounds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .sound-icon-wrap {
+      height: 110px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .sound-icon-wrap::before {
+      content: '';
+      position: absolute; inset: 0; opacity: 0.5;
+    }
+    .sound-icon-wrap i { position: relative; z-index: 1; font-size: 3rem; }
+    .si-rain   { }
+    .si-rain::before   { background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.28) 0%, transparent 70%); }
+    .si-fire::before   { background: radial-gradient(ellipse at 50% 100%, rgba(245,158,11,0.22) 0%, transparent 70%); }
+    .si-ocean::before  { background: radial-gradient(ellipse at 50% 100%, rgba(20,184,166,0.28) 0%, transparent 70%); }
+    .si-forest::before { background: radial-gradient(ellipse at 50% 100%, rgba(16,185,129,0.22) 0%, transparent 70%); }
+    .si-thunder::before{ background: radial-gradient(ellipse at 50% 100%, rgba(139,92,246,0.22) 0%, transparent 70%); }
+    .si-wind::before   { background: radial-gradient(ellipse at 50% 100%, rgba(148,163,184,0.2) 0%, transparent 70%); }
+
+    .sound-card-body { padding: 1.5rem; }
+    .sound-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--slate-100);
+      margin-bottom: 0.375rem;
+    }
+    .sound-desc { font-size: 0.85rem; color: var(--slate-500); margin-bottom: 1.25rem; line-height: 1.6; }
+
+    .play-row { display: flex; align-items: center; gap: 0.75rem; }
+    .play-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--teal-400);
+      font-size: 1.875rem;
+      line-height: 1;
+      transition: color 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .play-btn:hover { transform: scale(1.1); }
+    .play-btn:active { transform: scale(0.95); }
+
+    /* Playing state */
+    .sound-playing .sound-icon-wrap i { animation: sound-pulse 1.5s ease-in-out infinite; }
+    @keyframes sound-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+    /* ─── Slider ──────────────────────────────────────── */
+    .slider {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 4px;
+      background: rgba(20,184,166,0.15);
+      border-radius: 4px; outline: none; cursor: pointer; flex: 1;
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px; height: 16px;
+      background: var(--gradient-brand);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(20,184,166,0.5);
+      transition: transform 0.15s;
+    }
+    .slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    .slider::-moz-range-thumb {
+      width: 16px; height: 16px;
+      background: var(--gradient-brand);
+      border-radius: 50%; cursor: pointer; border: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BINAURAL BEATS
+    ═══════════════════════════════════════════════════════ */
+    .binaural-card { padding: 2.5rem 2rem; }
+    @media (min-width: 768px) { .binaural-card { padding: 3rem; } }
+    .binaural-grid {
+      display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+    }
+    @media (min-width: 768px) { .binaural-grid { grid-template-columns: 1fr 1fr; } }
+
+    .binaural-h3 {
+      font-family: var(--font-display);
+      font-size: 1.875rem; font-weight: 300;
+      color: var(--slate-100); margin-bottom: 0.5rem; letter-spacing: -0.02em;
+    }
+    .label-row {
+      display: flex; justify-content: space-between;
+      font-size: 0.72rem; color: var(--slate-500);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+    .label-row span:last-child { color: var(--teal-400); font-weight: 500; letter-spacing: 0; text-transform: none; }
+
+    select {
+      background: var(--navy-800);
+      color: var(--slate-300);
+      border: 1px solid rgba(20,184,166,0.2);
+      border-radius: var(--radius-md);
+      padding: 0.625rem 0.875rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      outline: none; cursor: pointer; width: 100%;
+      transition: border-color 0.2s;
+    }
+    select:focus { border-color: rgba(20,184,166,0.5); }
+
+    .vis-box {
+      border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.25rem;
+      background: rgba(6,14,28,0.7);
+      border: 1px solid rgba(20,184,166,0.08);
+    }
+    .vis-label { font-size: 0.68rem; color: var(--slate-600); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 0.75rem; }
+    #waveCanvas { width: 100%; background: transparent; border-radius: 6px; }
+
+    .freq-row { display: flex; justify-content: space-between; margin-bottom: 0.875rem; }
+    .freq-col span:first-child { font-size: 0.68rem; color: var(--slate-500); text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 0.25rem; }
+    .freq-col span:last-child { font-weight: 500; }
+
+    .progress-track { height: 3px; border-radius: 2px; overflow: hidden; background: rgba(20,184,166,0.1); margin-bottom: 1rem; }
+    #progressBar { height: 100%; border-radius: 2px; background: var(--gradient-brand); transition: width 0.4s ease; width: 0%; }
+
+    .state-box {
+      border-radius: var(--radius-md); padding: 1rem;
+      background: rgba(20,184,166,0.04);
+      border: 1px solid rgba(20,184,166,0.08);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       GUIDED MEDITATIONS
+    ═══════════════════════════════════════════════════════ */
+    .guided-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .med-thumb {
+      height: 160px; position: relative; overflow: hidden;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .med-thumb::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,20,36,0.88) 0%, rgba(8,20,36,0.2) 60%, transparent 100%);
+    }
+    .med-thumb > i {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; color: rgba(255,255,255,0.5); z-index: 1;
+    }
+    .med-body { padding: 1.5rem; }
+    .med-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .med-duration { font-size: 0.8rem; color: var(--slate-500); }
+    .badge {
+      display: inline-flex; align-items: center;
+      padding: 0.2rem 0.625rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .med-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--slate-100); margin-bottom: 0.5rem;
+    }
+    .med-desc { font-size: 0.85rem; color: var(--slate-500); line-height: 1.6; margin-bottom: 1.25rem; }
+
+    /* ═══════════════════════════════════════════════════════
+       PRICING
+    ═══════════════════════════════════════════════════════ */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; max-width: 680px; margin: 0 auto; }
+    .pricing-card { padding: 2rem; }
+    .price-display { display: flex; align-items: flex-end; gap: 0.125rem; margin-bottom: 0.375rem; }
+    .price-main { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--slate-100); line-height: 1; }
+    .price-cents { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; color: var(--slate-400); line-height: 1.5; }
+    .price-per { color: var(--slate-500); font-size: 0.875rem; margin-bottom: 1; padding-bottom: 0.25rem; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .pricing-features li { display: flex; align-items: center; gap: 0.625rem; font-size: 0.875rem; color: var(--slate-400); }
+    .pricing-features i { color: var(--teal-400); font-size: 1rem; flex-shrink: 0; }
+    .pricing-featured { border-color: rgba(20,184,166,0.3) !important; box-shadow: 0 8px 48px rgba(20,184,166,0.08), 0 0 0 1px rgba(20,184,166,0.15) !important; }
+    .save-badge-wrap { position: absolute; top: 1rem; right: 1rem; }
+    .pricing-card { position: relative; }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════ */
+    footer {
+      border-top: 1px solid rgba(20,184,166,0.08);
+      padding: 3rem 0;
+    }
+    .footer-inner {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1.5rem;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+    }
+    .footer-logo { display: flex; align-items: center; gap: 0.625rem; }
+    .footer-logo img { width: 2.25rem; height: 2.25rem; border-radius: 23%; object-fit: cover; }
+    .footer-logo-text { font-family: var(--font-display); font-size: 1.1rem; color: var(--slate-300); letter-spacing: -0.02em; }
+    .footer-tagline { color: var(--slate-600); font-size: 0.875rem; margin-left: 0.25rem; }
+    .footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-links a { font-size: 0.875rem; color: var(--slate-600); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--teal-400); }
+
+    /* ═══════════════════════════════════════════════════════
+       MODALS
+    ═══════════════════════════════════════════════════════ */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 950;
+      background: rgba(2,6,14,0.85);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .modal-backdrop.open { opacity: 1; pointer-events: all; }
+    .modal-panel {
+      background: linear-gradient(160deg, var(--navy-800) 0%, var(--navy-850) 100%);
+      border: 1px solid rgba(20,184,166,0.15);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(20,184,166,0.05);
+      width: 100%;
+      transform: translateY(8px) scale(0.98);
+      transition: transform 0.3s var(--ease-out);
+    }
+    .modal-backdrop.open .modal-panel { transform: translateY(0) scale(1); }
+    .modal-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: none; border: none; cursor: pointer;
+      color: var(--slate-600); font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--slate-300); }
+
+    .timer-circle { transition: stroke-dashoffset 1s linear; }
+    input[type="email"], input[type="password"] {
+      background: var(--navy-800);
+      color: var(--slate-300);
+      border: 1px solid rgba(20,184,166,0.15);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 0.875rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none; width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input[type="email"]:focus, input[type="password"]:focus {
+      border-color: rgba(20,184,166,0.5);
+      box-shadow: 0 0 0 3px rgba(20,184,166,0.1);
+    }
+    input[type="email"]::placeholder, input[type="password"]::placeholder { color: var(--slate-700); }
+    input[type="checkbox"] { accent-color: var(--teal-400); }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO GLASS PANEL
+    ═══════════════════════════════════════════════════════ */
+    .hero-content-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.25rem;
+      gap: 0;
+      width: 100%;
+      max-width: 54rem;
+    }
+    .hero-glass-panel {
+      background: rgba(9, 18, 40, 0.52);
+      -webkit-backdrop-filter: blur(28px);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(20, 184, 166, 0.18);
+      border-radius: var(--radius-2xl);
+      padding: 2.75rem 3.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 50rem;
+      box-shadow:
+        0 8px 48px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(20, 184, 166, 0.14),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+        0 0 80px rgba(20, 184, 166, 0.04);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: hero-panel-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+    }
+    @keyframes hero-panel-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .pulse-rings-wrap {
+      position: relative;
+      z-index: 2;
+      margin-bottom: -2.25rem;
+    }
+    @media (max-width: 640px) {
+      .hero-glass-panel { padding: 2rem 1.25rem 2.5rem; }
+      .pulse-rings-wrap { margin-bottom: -1.75rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ENTRANCE ANIMATION STUBS (Motion One fills these in)
+    ═══════════════════════════════════════════════════════ */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════════════════ */
+    .text-teal  { color: var(--teal-400); }
+    .text-cyan  { color: var(--cyan-400); }
+    .text-violet{ color: var(--violet-400); }
+    .text-peach { color: var(--peach-400); }
+    .hidden { display: none !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+    .space-y > * + * { margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient blobs -->
+  <div class="blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════════ -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="HZ-Zen home">
+        <img src="assets/hz-zen-app-icon.png" alt="HZ-Zen logo">
+        <span class="nav-logo-text">HZ-Zen</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#sounds"       class="nav-link">Sounds</a></li>
+          <li><a href="#binaural"     class="nav-link">Binaural</a></li>
+          <li><a href="#guided"       class="nav-link">Meditations</a></li>
+          <li><a href="#pricing"      class="nav-link">Pricing</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="loginBtn"     class="btn-ghost">Login</button>
+        <button id="subscribeBtn" class="btn-primary nav-subscribe-desktop">Subscribe</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+          <i class="ri-menu-3-line"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="#sounds"   class="mobile-nav-link">Sounds</a>
+    <a href="#binaural" class="mobile-nav-link">Binaural Beats</a>
+    <a href="#guided"   class="mobile-nav-link">Meditations</a>
+    <a href="#pricing"  class="mobile-nav-link">Pricing</a>
+    <button id="mobileSubscribeBtn" class="btn-primary">Subscribe — $9.99/mo</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO — Full-height with looping video crossfade
+  ═══════════════════════════════════════════════════ -->
+  <section class="video-section" id="hero" aria-label="Hero">
+
+    <!-- Video background layers (crossfade via JS) -->
+    <div class="video-bg-wrap" id="heroBgWrap" aria-hidden="true">
+      <!-- Add real video files to media/ for these to play. CSS gradient fallback is always visible. -->
+      <video id="heroVid0" muted playsinline loop preload="none" src="media/hero-1.mp4"></video>
+      <video id="heroVid1" muted playsinline loop preload="none" src="media/hero-2.mp4"></video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="hero-content-wrap">
+
+      <!-- Logo orb floats above the glass panel -->
+      <div class="pulse-rings-wrap">
+        <div class="pulse-rings">
+          <div class="pulse-ring pulse-ring-1" aria-hidden="true"></div>
+          <div class="pulse-ring pulse-ring-2" aria-hidden="true"></div>
+          <div class="pulse-ring pulse-ring-3" aria-hidden="true"></div>
+          <img src="assets/hz-zen-app-icon.png" alt="HZ-Zen" class="pulse-logo">
+        </div>
+      </div>
+
+      <!-- Liquid-glass hero panel -->
+      <div class="hero-glass-panel">
+
+        <!-- Eyebrow -->
+        <p class="hero-eyebrow">Sound Therapy &amp; Meditation</p>
+
+        <!-- Headline with word-by-word reveal -->
+        <h1 class="hero-h1">
+          <span class="word-wrap"><span class="word">Find</span></span><span class="word-wrap"><span class="word">&nbsp;Your</span></span>
+          <span class="word-wrap"><span class="word">&nbsp;Harmony,</span></span>
+          <br>
+          <span class="word-wrap"><span class="word">Every&nbsp;</span></span><span class="word-wrap"><span class="word hero-gradient-text">Day.</span></span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="hero-sub">
+          Build a single-page landing site with two full-height sections (Hero + Capabilities), both using looping background videos with custom JS crossfade, a shared liquid-glass design system, and Framer Motion entrance animations.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas">
+          <button id="startJourneyBtn" class="btn-primary">Begin Your Journey</button>
+          <button id="learnMoreBtn"    class="btn-ghost">Explore Frequencies</button>
+        </div>
+
+      </div><!-- /.hero-glass-panel -->
+    </div><!-- /.hero-content-wrap -->
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <i class="ri-arrow-down-line"></i>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       CAPABILITIES — Second full-height section with its own video bg
+  ═══════════════════════════════════════════════════ -->
+  <section class="video-section" id="capabilities" aria-label="Capabilities">
+
+    <div class="video-bg-wrap" id="capsBgWrap" aria-hidden="true">
+      <video id="capsVid0" muted playsinline loop preload="none" src="media/caps-1.mp4"></video>
+      <video id="capsVid1" muted playsinline loop preload="none" src="media/caps-2.mp4"></video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <div class="caps-inner">
+      <div class="text-center">
+        <span class="caps-eyebrow">What HZ-Zen Offers</span>
+        <h2 class="caps-h2" data-reveal>
+          Your Complete<br><em class="gradient-aurora">Sound Sanctuary</em>
+        </h2>
+      </div>
+
+      <div class="caps-grid">
+        <!-- Binaural Beats -->
+        <div class="glass cap-card" data-reveal data-reveal-delay="0.05">
+          <div class="cap-icon cap-icon-teal"><i class="ri-brain-line"></i></div>
+          <h3 class="cap-title">Binaural Beats</h3>
+          <p class="cap-desc">Science-backed frequency therapy. Tune your brain to delta, theta, alpha, beta, or gamma states with precision.</p>
+          <span class="cap-badge badge-teal">Frequency Science</span>
+        </div>
+
+        <!-- Nature Sounds -->
+        <div class="glass cap-card" data-reveal data-reveal-delay="0.10">
+          <div class="cap-icon cap-icon-cyan"><i class="ri-leaf-line"></i></div>
+          <h3 class="cap-title">Nature Sounds</h3>
+          <p class="cap-desc">Six immersive soundscapes — rain, fire, ocean, forest, thunder, and wind — synthesized in real time.</p>
+          <span class="cap-badge badge-cyan">6 Soundscapes</span>
+        </div>
+
+        <!-- Guided Meditations -->
+        <div class="glass cap-card" data-reveal data-reveal-delay="0.15">
+          <div class="cap-icon cap-icon-violet"><i class="ri-mental-health-line"></i></div>
+          <h3 class="cap-title">Guided Sessions</h3>
+          <p class="cap-desc">Teacher-led practices from breathwork fundamentals to advanced loving-kindness cultivation. Every level.</p>
+          <span class="cap-badge badge-violet">Beginner → Advanced</span>
+        </div>
+
+        <!-- Meditation Timer -->
+        <div class="glass cap-card" data-reveal data-reveal-delay="0.20">
+          <div class="cap-icon cap-icon-peach"><i class="ri-timer-line"></i></div>
+          <h3 class="cap-title">Meditation Timer</h3>
+          <p class="cap-desc">Track your practice with an elegant circular countdown. Start, pause, and build a consistent daily habit.</p>
+          <span class="cap-badge badge-peach">Track Your Practice</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       MEDITATION SOUNDS
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" id="sounds" aria-label="Meditation Sounds">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow">Nature &amp; Ambient</span>
+        <h2 class="section-h2">Meditation Sounds</h2>
+        <p class="section-lead">Immersive soundscapes synthesized in real time to dissolve stress and anchor your attention.</p>
+      </div>
+
+      <div class="sounds-grid">
+        <!-- Rain -->
+        <div class="card" id="rain-card" data-reveal data-reveal-delay="0.05">
+          <div class="sound-icon-wrap si-rain">
+            <i class="ri-drops-line text-cyan drop-shadow-cyan"></i>
+          </div>
+          <div class="sound-card-body">
+            <h3 class="sound-title">Rain Sounds</h3>
+            <p class="sound-desc">Gentle rainfall to soothe the mind and ease you into focus.</p>
+            <div class="play-row">
+              <button class="play-btn play-pause-btn" data-audio="rain-audio" aria-label="Play Rain">
+                <i class="ri-play-circle-fill"></i>
+              </button>
+              <input type="range" min="0" max="100" value="0" class="slider" aria-label="Rain progress">
+            </div>
+          </div>
+        </div>
+
+        <!-- Campfire -->
+        <div class="card" id="fire-card" data-reveal data-reveal-delay="0.08">
+          <div class="sound-icon-wrap si-fire">
+            <i class="ri-fire-line drop-shadow-fire"></i>
+          </div>
+          <div class="sound-card-body">
+            <h3 class="sound-title">Campfire</h3>
+            <p class="sound-desc">Cozy crackling embers to warm your space and steady your breath.</p>
+            <div class="play-row">
+              <button class="play-btn play-pause-btn" data-audio="fire-audio" aria-label="Play Campfire">
+                <i class="ri-play-circle-fill"></i>
+              </button>
+              <input type="range" min="0" max="100" value="0" class="slider" aria-label="Campfire progress">
+            </div>
+          </div>
+        </div>
+
+        <!-- Ocean -->
+        <div class="card" id="ocean-card" data-reveal data-reveal-delay="0.11">
+          <div class="sound-icon-wrap si-ocean">
+            <i class="ri-tsunami-line text-teal drop-shadow-teal"></i>
+          </div>
+          <div class="sound-card-body">
+            <h3 class="sound-title">Ocean Waves</h3>
+            <p class="sound-desc">Rhythmic surf to synchronize your nervous system with the tide.</p>
+            <div class="play-row">
+              <button class="play-btn play-pause-btn" data-audio="ocean-audio" aria-label="Play Ocean">
+                <i class="ri-play-circle-fill"></i>
+              </button>
+              <input type="range" min="0" max="100" value="0" class="slider" aria-label="Ocean progress">
+            </div>
+          </div>
+        </div>
+
+        <!-- Forest -->
+        <div class="card" id="forest-card" data-reveal data-reveal-delay="0.14">
+          <div class="sound-icon-wrap si-forest">
+            <i class="ri-plant-line drop-shadow-green"></i>
+          </div>
+          <div class="sound-card-body">
+            <h3 class="sound-title">Forest Birdsong</h3>
+            <p class="sound-desc">Morning birds and rustling leaves to reconnect with the natural world.</p>
+            <div class="play-row">
+              <button class="play-btn play-pause-btn" data-audio="forest-audio" aria-label="Play Forest">
+                <i class="ri-play-circle-fill"></i>
+              </button>
+              <input type="range" min="0" max="100" value="0" class="slider" aria-label="Forest progress">
+            </div>
+          </div>
+        </div>
+
+        <!-- Thunder -->
+        <div class="card" id="thunder-card" data-reveal data-reveal-delay="0.17">
+          <div class="sound-icon-wrap si-thunder">
+            <i class="ri-thunderstorms-line text-violet drop-shadow-violet"></i>
+          </div>
+          <div class="sound-card-body">
+            <h3 class="sound-title">Thunderstorm</h3>
+            <p class="sound-desc">Deep rolling thunder with steady rain for powerful sleep induction.</p>
+            <div class="play-row">
+              <button class="play-btn play-pause-btn" data-audio="thunder-audio" aria-label="Play Thunder">
+                <i class="ri-play-circle-fill"></i>
+              </button>
+              <input type="range" min="0" max="100" value="0" class="slider" aria-label="Thunder progress">
+            </div>
+          </div>
+        </div>
+
+        <!-- Wind -->
+        <div class="card" id="wind-card" data-reveal data-reveal-delay="0.20">
+          <div class="sound-icon-wrap si-wind">
+            <i class="ri-windy-line drop-shadow-slate"></i>
+          </div>
+          <div class="sound-card-body">
+            <h3 class="sound-title">Gentle Wind</h3>
+            <p class="sound-desc">Soft breeze through open spaces to quiet a restless mind.</p>
+            <div class="play-row">
+              <button class="play-btn play-pause-btn" data-audio="wind-audio" aria-label="Play Wind">
+                <i class="ri-play-circle-fill"></i>
+              </button>
+              <input type="range" min="0" max="100" value="0" class="slider" aria-label="Wind progress">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       BINAURAL BEATS
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" id="binaural" aria-label="Binaural Beats">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow">Frequency Science</span>
+        <h2 class="section-h2">Binaural Beats</h2>
+        <p class="section-lead">Tune your brainwaves to specific states — from deep delta sleep to peak gamma focus — with precision frequency therapy. Headphones required.</p>
+      </div>
+
+      <div class="card binaural-card" data-reveal>
+        <div class="binaural-grid">
+
+          <!-- Controls -->
+          <div>
+            <h3 class="binaural-h3">Generator</h3>
+            <p>Each ear receives a slightly different tone — your brain perceives the difference as a third frequency, the binaural beat.</p>
+
+            <div class="space-y">
+              <div>
+                <label class="label-row" for="frequencyType"><span>Brain State</span></label>
+                <select id="frequencyType">
+                  <option value="delta">Delta (0.5–4 Hz) — Deep sleep &amp; healing</option>
+                  <option value="theta">Theta (4–8 Hz) — Meditation &amp; creativity</option>
+                  <option value="alpha" selected>Alpha (8–14 Hz) — Relaxation &amp; calm</option>
+                  <option value="beta">Beta (14–30 Hz) — Focus &amp; alertness</option>
+                  <option value="gamma">Gamma (30–100 Hz) — Peak concentration</option>
+                </select>
+              </div>
+
+              <div>
+                <div class="label-row"><span>Base Frequency</span><span><span id="baseFreqDisplay">200</span> Hz</span></div>
+                <input type="range" id="baseFrequency" class="slider" min="100" max="500" value="200" title="Base Frequency">
+              </div>
+
+              <div>
+                <div class="label-row"><span>Beat Frequency</span><span><span id="beatFreqDisplay">10</span> Hz</span></div>
+                <input type="range" id="beatFrequency" class="slider" min="0.5" max="40" step="0.5" value="10" title="Beat Frequency">
+              </div>
+
+              <div>
+                <div class="label-row"><span>Volume</span><span id="volumeDisplay">50%</span></div>
+                <input type="range" id="volumeControl" class="slider" min="0" max="100" value="50" title="Volume">
+              </div>
+            </div>
+
+            <div>
+              <button id="startBinauralBtn" class="btn-primary">
+                <i class="ri-play-fill"></i> Start
+              </button>
+              <button id="stopBinauralBtn" class="btn-ghost hidden">
+                <i class="ri-stop-fill"></i> Stop
+              </button>
+            </div>
+          </div>
+
+          <!-- Visualization -->
+          <div>
+            <div class="vis-box">
+              <p class="vis-label">Live Waveform</p>
+              <canvas id="waveCanvas" height="80"></canvas>
+            </div>
+
+            <div class="freq-row">
+              <div class="freq-col">
+                <span>Left Ear</span>
+                <span class="text-teal" id="leftFreqDisplay">200 Hz</span>
+              </div>
+              <div class="freq-col">
+                <span>Right Ear</span>
+                <span class="text-cyan" id="rightFreqDisplay">210 Hz</span>
+              </div>
+            </div>
+
+            <div class="progress-track"><div id="progressBar"></div></div>
+
+            <div class="state-box">
+              <p>Current state: <span id="currentWave" class="text-teal">Alpha</span></p>
+              <p>Benefits: <span id="waveEffect">Relaxation, stress reduction, calmness</span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       GUIDED MEDITATIONS
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" id="guided" aria-label="Guided Meditations">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow">Teacher-Led Sessions</span>
+        <h2 class="section-h2">Guided Meditations</h2>
+        <p class="section-lead">Structured practices for every level — from breathwork fundamentals to advanced loving-kindness cultivation.</p>
+      </div>
+
+      <div class="guided-grid">
+        <!-- Breath Awareness -->
+        <div class="card" data-reveal data-reveal-delay="0.05">
+          <div class="med-thumb">
+            <i class="ri-mental-health-line"></i>
+          </div>
+          <div class="med-body">
+            <div class="med-meta">
+              <span class="badge badge-teal">Beginner</span>
+              <span class="med-duration">10 min</span>
+            </div>
+            <h3 class="med-title">Breath Awareness</h3>
+            <p class="med-desc">Anchor your awareness to the natural rhythm of each breath. Let thoughts come and go without judgment.</p>
+            <button class="guided-meditation-btn btn-primary" data-meditation="breath" data-duration="10">
+              <i class="ri-play-circle-line"></i> Begin Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Body Scan -->
+        <div class="card" data-reveal data-reveal-delay="0.10">
+          <div class="med-thumb">
+            <i class="ri-heart-pulse-line"></i>
+          </div>
+          <div class="med-body">
+            <div class="med-meta">
+              <span class="badge badge-cyan">Intermediate</span>
+              <span class="med-duration">15 min</span>
+            </div>
+            <h3 class="med-title">Body Scan</h3>
+            <p class="med-desc">Progressively release tension as you guide awareness through every part of your body from head to toe.</p>
+            <button class="guided-meditation-btn btn-primary" data-meditation="body" data-duration="15">
+              <i class="ri-play-circle-line"></i> Begin Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Loving-Kindness -->
+        <div class="card" data-reveal data-reveal-delay="0.15">
+          <div class="med-thumb">
+            <i class="ri-sun-line"></i>
+          </div>
+          <div class="med-body">
+            <div class="med-meta">
+              <span class="badge badge-violet">Advanced</span>
+              <span class="med-duration">20 min</span>
+            </div>
+            <h3 class="med-title">Loving-Kindness</h3>
+            <p class="med-desc">Cultivate deep compassion for yourself and others through ancient Metta phrases and visualization.</p>
+            <button class="guided-meditation-btn btn-primary" data-meditation="loving" data-duration="20">
+              <i class="ri-play-circle-line"></i> Begin Session
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       PRICING
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" id="pricing" aria-label="Pricing">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow">Unlock Everything</span>
+        <h2 class="section-h2">Simple Pricing</h2>
+        <p class="section-lead">All the tools you need to build a daily practice. No ads, no distractions.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Monthly -->
+        <div class="card pricing-card" data-reveal data-reveal-delay="0.05">
+          <span class="badge badge-teal">Monthly</span>
+          <div class="price-display">
+            <span class="price-main">$9</span>
+            <span class="price-cents">.99</span>
+            <span class="price-per">/month</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="ri-check-line"></i>All 6 ambient soundscapes</li>
+            <li><i class="ri-check-line"></i>Full binaural beat generator</li>
+            <li><i class="ri-check-line"></i>3 guided meditations</li>
+            <li><i class="ri-check-line"></i>Meditation timer</li>
+            <li><i class="ri-check-line"></i>Mobile &amp; desktop access</li>
+          </ul>
+          <button class="btn-ghost">Choose Monthly</button>
+        </div>
+
+        <!-- Annual -->
+        <div class="card pricing-card pricing-featured" data-reveal data-reveal-delay="0.10">
+          <div class="save-badge-wrap">
+            <span class="badge">Save 30%</span>
+          </div>
+          <span class="badge badge-teal">Annual</span>
+          <div class="price-display">
+            <span class="price-main">$83</span>
+            <span class="price-cents">.88</span>
+            <span class="price-per">/year</span>
+          </div>
+          <p>That's just $6.99/mo — two months free</p>
+          <ul class="pricing-features">
+            <li><i class="ri-check-line"></i>Everything in Monthly</li>
+            <li><i class="ri-check-line"></i>Two months free</li>
+            <li><i class="ri-check-line"></i>Priority support</li>
+            <li><i class="ri-check-line"></i>Early access to new content</li>
+            <li><i class="ri-check-line"></i>Offline download (coming soon)</li>
+          </ul>
+          <button class="btn-primary">Choose Annual — Best Value</button>
+        </div>
+      </div>
+
+      <p>
+        By subscribing you agree to our
+        <a href="#">Terms</a>
+        and
+        <a href="#">Privacy Policy</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="assets/hz-zen-app-icon.png" alt="HZ-Zen">
+          <span class="footer-logo-text">HZ-Zen</span>
+          <span class="footer-tagline">— Find Your Harmony, Every Day.</span>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+          <span>&copy; 2025 NCapp.net</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════
+       MEDITATION TIMER MODAL
+  ═══════════════════════════════════════════════════ -->
+  <div id="meditationModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Meditation timer">
+    <div class="modal-panel">
+      <div>
+        <button id="closeModalBtn" class="modal-close" aria-label="Close"><i class="ri-close-line"></i></button>
+
+        <h3 id="meditationTitle">Breath Awareness</h3>
+        <p id="meditationDesc">Focus on your breath, allowing thoughts to come and go without judgment.</p>
+
+        <!-- Timer circle -->
+        <div class="timer-container">
+          <div>
+            <svg class="w-full h-full timer-svg" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(20,184,166,0.1)" stroke-width="2"></circle>
+              <circle id="timerCircle" cx="50" cy="50" r="44" fill="none"
+                stroke="url(#timerGrad)" stroke-width="3" stroke-linecap="round"
+                stroke-dasharray="276.46" stroke-dashoffset="276.46"
+                class="timer-circle"></circle>
+              <defs>
+                <linearGradient id="timerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#14B8A6"/>
+                  <stop offset="100%" stop-color="#06B6D4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="timer-center">
+              <span id="timerDisplay">10:00</span>
+              <span class="timer-label">remaining</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-buttons">
+          <button id="startTimerBtn" class="btn-primary">
+            <i class="ri-play-fill"></i> Start
+          </button>
+          <button id="pauseTimerBtn" class="btn-ghost hidden">
+            <i class="ri-pause-fill"></i> Pause
+          </button>
+          <button id="stopTimerBtn" class="btn-ghost">
+            <i class="ri-stop-fill"></i> Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       LOGIN MODAL
+  ═══════════════════════════════════════════════════ -->
+  <div id="loginModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Login">
+    <div class="modal-panel modal-login">
+      <div>
+        <button id="closeLoginBtn" class="modal-close" aria-label="Close"><i class="ri-close-line"></i></button>
+
+        <div>
+          <img src="assets/hz-zen-app-icon.png" alt="HZ-Zen" class="login-icon">
+          <h3>Welcome Back</h3>
+          <p>Sign in to your HZ-Zen account</p>
+        </div>
+
+        <form id="loginForm">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+          </div>
+          <div class="form-footer">
+            <label>
+              <input type="checkbox" id="remember"> Remember me
+            </label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn-primary">Sign In</button>
+          <p>
+            No account? <a href="#">Sign up free</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       SUBSCRIBE MODAL
+  ═══════════════════════════════════════════════════ -->
+  <div id="subscribeModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Subscribe">
+    <div class="modal-panel modal-subscribe">
+      <div>
+        <button id="closeSubscribeBtn" class="modal-close" aria-label="Close"><i class="ri-close-line"></i></button>
+
+        <div class="subscribe-header">
+          <div class="subscribe-icon">
+            <i class="ri-vip-crown-line"></i>
+          </div>
+          <h3>HZ-Zen Premium</h3>
+          <p>Unlock every feature and deepen your practice</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <span class="badge badge-teal">Monthly</span>
+            <div class="price-row">
+              <span class="price-main">$9.99</span>
+              <span class="price-per">/mo</span>
+            </div>
+            <button class="btn-ghost">Choose</button>
+          </div>
+          <div class="pricing-card pricing-card-featured">
+            <span class="badge badge-save">Annual · Save 30%</span>
+            <div class="price-row">
+              <span class="price-main">$83.88</span>
+              <span class="price-per">/yr</span>
+            </div>
+            <button class="btn-primary">Best Value</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════ -->
+
+  <!-- Motion One (Framer Motion team's vanilla JS animation library) -->
+  <script type="module">
+    import { animate, inView, stagger } from 'https://cdn.jsdelivr.net/npm/motion@latest/+esm';
+
+    /* ── Entrance animations via IntersectionObserver ── */
+    inView('[data-reveal]', ({ target }) => {
+      const delay = parseFloat(target.dataset.revealDelay || 0);
+      animate(
+        target,
+        { opacity: [0, 1], transform: ['translateY(28px)', 'translateY(0)'] },
+        { duration: 0.7, delay, easing: [0.16, 1, 0.3, 1] }
+      );
+    }, { amount: 0.15 });
+
+    /* ── Capabilities grid stagger ── */
+    inView('#capabilities .caps-grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.cap-card'),
+        { opacity: [0, 1], transform: ['translateY(32px) scale(0.97)', 'translateY(0) scale(1)'] },
+        { duration: 0.65, delay: stagger(0.08), easing: [0.16, 1, 0.3, 1] }
+      );
+    }, { amount: 0.1 });
+
+    /* ── Sound cards stagger ── */
+    inView('.sounds-grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.card'),
+        { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0)'] },
+        { duration: 0.6, delay: stagger(0.06), easing: [0.16, 1, 0.3, 1] }
+      );
+    }, { amount: 0.05 });
+
+    /* ── Pricing cards ── */
+    inView('.pricing-grid', ({ target }) => {
+      animate(
+        target.querySelectorAll('.pricing-card'),
+        { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0)'] },
+        { duration: 0.6, delay: stagger(0.1), easing: [0.16, 1, 0.3, 1] }
+      );
+    }, { amount: 0.15 });
+  </script>
+
+  <script>
+    /* ── Video crossfader ────────────────────────────────── */
+    class VideoCrossfader {
+      constructor(videos, interval) {
+        this.vids = videos;
+        this.cur = 0;
+        const first = this.vids[0];
+        if (first && first.src) {
+          first.play().catch(() => {});
+        }
+        if (this.vids.length > 1) {
+          setTimeout(() => this._tick(), interval);
+          setInterval(() => this._tick(), interval);
+        }
+      }
+      _tick() {
+        const next = (this.cur + 1) % this.vids.length;
+        this.vids[this.cur].style.opacity = '0';
+        this.vids[next].style.opacity = '1';
+        this.vids[next].play().catch(() => {});
+        this.cur = next;
+      }
+    }
+
+    /* Init crossfaders after user interaction (required by browser autoplay policy) */
+    let crossfadersStarted = false;
+    function initCrossfaders() {
+      if (crossfadersStarted) return;
+      crossfadersStarted = true;
+      new VideoCrossfader(
+        [document.getElementById('heroVid0'), document.getElementById('heroVid1')],
+        9000
+      );
+      new VideoCrossfader(
+        [document.getElementById('capsVid0'), document.getElementById('capsVid1')],
+        11000
+      );
+    }
+    document.addEventListener('click',      initCrossfaders, { once: true });
+    document.addEventListener('scroll',     initCrossfaders, { once: true, passive: true });
+    document.addEventListener('touchstart', initCrossfaders, { once: true, passive: true });
+    /* Also try immediately (works in some browsers without gesture) */
+    window.addEventListener('load', () => {
+      setTimeout(initCrossfaders, 500);
+    });
+
+    /* ── Nav scroll state ────────────────────────────────── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ── Mobile menu ─────────────────────────────────────── */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu    = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      mobileMenuBtn.setAttribute('aria-expanded', open);
+      mobileMenuBtn.querySelector('i').className = open ? 'ri-close-line' : 'ri-menu-3-line';
+    });
+    mobileMenu.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.querySelector('i').className = 'ri-menu-3-line';
+      });
+    });
+
+    /* ── Smooth scroll ───────────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    /* ── Hero CTAs ───────────────────────────────────────── */
+    document.getElementById('startJourneyBtn').addEventListener('click', () =>
+      document.querySelector('#sounds').scrollIntoView({ behavior: 'smooth' })
+    );
+    document.getElementById('learnMoreBtn').addEventListener('click', () =>
+      document.querySelector('#binaural').scrollIntoView({ behavior: 'smooth' })
+    );
+
+    /* ── Modal helpers ───────────────────────────────────── */
+    function openModal(id)  { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+
+    document.getElementById('loginBtn').addEventListener('click', () => openModal('loginModal'));
+    document.getElementById('closeLoginBtn').addEventListener('click', () => closeModal('loginModal'));
+    document.getElementById('loginForm').addEventListener('submit', e => e.preventDefault());
+
+    document.getElementById('subscribeBtn').addEventListener('click', () => openModal('subscribeModal'));
+    document.getElementById('mobileSubscribeBtn').addEventListener('click', () => openModal('subscribeModal'));
+    document.getElementById('closeSubscribeBtn').addEventListener('click', () => closeModal('subscribeModal'));
+
+    document.getElementById('closeModalBtn').addEventListener('click', () => closeModal('meditationModal'));
+
+    /* Close modal on backdrop click */
+    ['meditationModal','loginModal','subscribeModal'].forEach(id => {
+      document.getElementById(id).addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeModal(id);
+      });
+    });
+
+    /* Escape key */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        ['meditationModal','loginModal','subscribeModal'].forEach(closeModal);
+      }
+    });
+
+    /* ── Nature sound engine ─────────────────────────────── */
+    const audioPlayers = {};
+
+    function generateSound(type, ctx) {
+      const sr = ctx.sampleRate;
+      switch (type) {
+        case 'rain': {
+          const buf = ctx.createBuffer(1, sr * 4, sr);
+          const d = buf.getChannelData(0);
+          for (let i = 0; i < buf.length; i++) d[i] = (Math.random() * 2 - 1) * 0.04;
+          const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+          const gain = ctx.createGain(); gain.gain.value = 0.55;
+          const flt = ctx.createBiquadFilter(); flt.type = 'bandpass'; flt.frequency.value = 3000; flt.Q.value = 0.5;
+          src.connect(flt); flt.connect(gain); gain.connect(ctx.destination);
+          src.start();
+          return { src, gain };
+        }
+        case 'fire': {
+          const buf = ctx.createBuffer(1, sr * 4, sr);
+          const d = buf.getChannelData(0);
+          for (let i = 0; i < buf.length; i++) d[i] = Math.random() > 0.995 ? (Math.random() * 2 - 1) * 0.35 : (Math.random() * 2 - 1) * 0.015;
+          const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+          const gain = ctx.createGain(); gain.gain.value = 0.6;
+          const flt = ctx.createBiquadFilter(); flt.type = 'lowpass'; flt.frequency.value = 1200;
+          src.connect(flt); flt.connect(gain); gain.connect(ctx.destination);
+          src.start();
+          return { src, gain };
+        }
+        case 'ocean': {
+          const buf = ctx.createBuffer(1, sr * 5, sr);
+          const d = buf.getChannelData(0);
+          for (let i = 0; i < buf.length; i++) {
+            const t = i / sr;
+            d[i] = (Math.random() * 2 - 1) * 0.03 * (1 + Math.sin(2 * Math.PI * 0.12 * t));
+          }
+          const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+          const gain = ctx.createGain(); gain.gain.value = 0.7;
+          const flt = ctx.createBiquadFilter(); flt.type = 'lowpass'; flt.frequency.value = 700;
+          src.connect(flt); flt.connect(gain); gain.connect(ctx.destination);
+          src.start();
+          return { src, gain };
+        }
+        case 'forest': {
+          const buf = ctx.createBuffer(1, sr * 4, sr);
+          const d = buf.getChannelData(0);
+          for (let i = 0; i < buf.length; i++) {
+            const t = i / sr;
+            d[i] = (Math.random() * 2 - 1) * 0.02 + Math.sin(2 * Math.PI * 440 * t) * 0.003 * (Math.random() > 0.998 ? 1 : 0);
+          }
+          const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+          const gain = ctx.createGain(); gain.gain.value = 0.45;
+          const flt = ctx.createBiquadFilter(); flt.type = 'bandpass'; flt.frequency.value = 2000; flt.Q.value = 1;
+          src.connect(flt); flt.connect(gain); gain.connect(ctx.destination);
+          src.start();
+          return { src, gain };
+        }
+        case 'thunder': {
+          const buf = ctx.createBuffer(1, sr * 6, sr);
+          const d = buf.getChannelData(0);
+          for (let i = 0; i < buf.length; i++) {
+            const t = i / sr;
+            const thunder = Math.random() > 0.9998 ? (Math.random() * 2 - 1) * 0.8 * Math.exp(-((t % 2) * 3)) : 0;
+            d[i] = (Math.random() * 2 - 1) * 0.035 + thunder;
+          }
+          const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+          const gain = ctx.createGain(); gain.gain.value = 0.65;
+          const flt = ctx.createBiquadFilter(); flt.type = 'lowpass'; flt.frequency.value = 500;
+          src.connect(flt); flt.connect(gain); gain.connect(ctx.destination);
+          src.start();
+          return { src, gain };
+        }
+        case 'wind': {
+          const buf = ctx.createBuffer(1, sr * 5, sr);
+          const d = buf.getChannelData(0);
+          for (let i = 0; i < buf.length; i++) {
+            const t = i / sr;
+            d[i] = (Math.random() * 2 - 1) * 0.025 * (1 + 0.5 * Math.sin(2 * Math.PI * 0.08 * t));
+          }
+          const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+          const gain = ctx.createGain(); gain.gain.value = 0.5;
+          const flt = ctx.createBiquadFilter(); flt.type = 'bandpass'; flt.frequency.value = 800; flt.Q.value = 0.7;
+          src.connect(flt); flt.connect(gain); gain.connect(ctx.destination);
+          src.start();
+          return { src, gain };
+        }
+      }
+    }
+
+    document.querySelectorAll('.play-pause-btn').forEach(btn => {
+      const audioId   = btn.getAttribute('data-audio');
+      const soundType = audioId.split('-')[0];
+
+      btn.addEventListener('click', () => {
+        const playing = btn.classList.contains('playing');
+
+        /* Stop all others */
+        document.querySelectorAll('.play-pause-btn.playing').forEach(other => {
+          if (other === btn) return;
+          other.classList.remove('playing');
+          other.innerHTML = '<i class="ri-play-circle-fill"></i>';
+          other.closest('.card')?.classList.remove('sound-playing');
+          const id = other.getAttribute('data-audio');
+          if (audioPlayers[id]) { try { audioPlayers[id].audioContext.close(); } catch(e){} delete audioPlayers[id]; }
+        });
+
+        if (playing) {
+          btn.classList.remove('playing');
+          btn.innerHTML = '<i class="ri-play-circle-fill"></i>';
+          btn.closest('.card')?.classList.remove('sound-playing');
+          if (audioPlayers[audioId]) { try { audioPlayers[audioId].audioContext.close(); } catch(e){} delete audioPlayers[audioId]; }
+        } else {
+          btn.classList.add('playing');
+          btn.innerHTML = '<i class="ri-pause-circle-fill"></i>';
+          btn.closest('.card')?.classList.add('sound-playing');
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          ctx.resume().then(() => {
+            const nodes = generateSound(soundType, ctx);
+            audioPlayers[audioId] = { audioContext: ctx, ...nodes };
+          });
+        }
+      });
+    });
+
+    /* ── Binaural Beat Generator ─────────────────────────── */
+    let binauralCtx = null, oscLeft = null, oscRight = null, binGain = null, binPlaying = false, animId;
+
+    function getBinCtx() {
+      if (!binauralCtx) binauralCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return binauralCtx;
+    }
+
+    const freqTypeEl  = document.getElementById('frequencyType');
+    const baseFreqEl  = document.getElementById('baseFrequency');
+    const beatFreqEl  = document.getElementById('beatFrequency');
+    const volEl       = document.getElementById('volumeControl');
+    const startBinBtn = document.getElementById('startBinauralBtn');
+    const stopBinBtn  = document.getElementById('stopBinauralBtn');
+    const baseFreqDisp = document.getElementById('baseFreqDisplay');
+    const beatFreqDisp = document.getElementById('beatFreqDisplay');
+    const volDisp      = document.getElementById('volumeDisplay');
+    const leftFreqDisp = document.getElementById('leftFreqDisplay');
+    const rightFreqDisp = document.getElementById('rightFreqDisplay');
+    const currentWaveEl = document.getElementById('currentWave');
+    const waveEffectEl  = document.getElementById('waveEffect');
+    const progressBarEl = document.getElementById('progressBar');
+    const waveCanvas    = document.getElementById('waveCanvas');
+    const waveCtx       = waveCanvas.getContext('2d');
+
+    const waveData = {
+      delta: { name: 'Delta', beat: 2,  effect: 'Deep sleep, cellular healing, dreamless rest' },
+      theta: { name: 'Theta', beat: 6,  effect: 'Meditation, creativity, REM sleep' },
+      alpha: { name: 'Alpha', beat: 10, effect: 'Relaxation, stress reduction, calmness' },
+      beta:  { name: 'Beta',  beat: 20, effect: 'Focus, alertness, problem-solving' },
+      gamma: { name: 'Gamma', beat: 35, effect: 'Peak concentration, cognitive enhancement' },
+    };
+
+    freqTypeEl.addEventListener('change', () => {
+      const data = waveData[freqTypeEl.value];
+      beatFreqEl.value = data.beat;
+      beatFreqDisp.textContent = data.beat;
+      currentWaveEl.textContent = data.name;
+      waveEffectEl.textContent = data.effect;
+      updateFreqDisplays();
+      if (binPlaying) updateOscillators();
+    });
+
+    baseFreqEl.addEventListener('input', () => { baseFreqDisp.textContent = baseFreqEl.value; updateFreqDisplays(); if (binPlaying) updateOscillators(); });
+    beatFreqEl.addEventListener('input', () => { beatFreqDisp.textContent = beatFreqEl.value; updateFreqDisplays(); if (binPlaying) updateOscillators(); });
+    volEl.addEventListener('input', () => { volDisp.textContent = volEl.value + '%'; if (binGain) binGain.gain.value = volEl.value / 100; });
+
+    function updateFreqDisplays() {
+      const base = +baseFreqEl.value, beat = +beatFreqEl.value;
+      leftFreqDisp.textContent  = base + ' Hz';
+      rightFreqDisp.textContent = (base + beat) + ' Hz';
+      let p = 0;
+      if      (beat <= 4)  p = (beat / 4)          * 20;
+      else if (beat <= 8)  p = 20 + ((beat - 4)  / 4)  * 20;
+      else if (beat <= 14) p = 40 + ((beat - 8)  / 6)  * 20;
+      else if (beat <= 30) p = 60 + ((beat - 14) / 16) * 20;
+      else                 p = 80 + Math.min(((beat - 30) / 10) * 20, 20);
+      progressBarEl.style.width = p + '%';
+    }
+
+    function startBinaural() {
+      if (binPlaying) return;
+      const ctx = getBinCtx();
+      ctx.resume().then(() => {
+        binGain = ctx.createGain();
+        binGain.gain.value = volEl.value / 100;
+        oscLeft  = ctx.createOscillator();
+        oscRight = ctx.createOscillator();
+        const base = +baseFreqEl.value, beat = +beatFreqEl.value;
+        oscLeft.frequency.value  = base;
+        oscRight.frequency.value = base + beat;
+        if (ctx.createStereoPanner) {
+          const panL = ctx.createStereoPanner(); panL.pan.value = -1;
+          const panR = ctx.createStereoPanner(); panR.pan.value = 1;
+          oscLeft.connect(panL);  oscRight.connect(panR);
+          panL.connect(binGain);  panR.connect(binGain);
+        } else {
+          oscLeft.connect(binGain); oscRight.connect(binGain);
+        }
+        binGain.connect(ctx.destination);
+        oscLeft.start(); oscRight.start();
+        binPlaying = true;
+        startBinBtn.classList.add('hidden'); stopBinBtn.classList.remove('hidden');
+        drawWave();
+      });
+    }
+
+    function stopBinaural() {
+      if (!binPlaying) return;
+      try { oscLeft.stop();  oscLeft.disconnect();  } catch(e){} oscLeft  = null;
+      try { oscRight.stop(); oscRight.disconnect(); } catch(e){} oscRight = null;
+      try { binGain.disconnect(); } catch(e){} binGain = null;
+      binPlaying = false;
+      stopBinBtn.classList.add('hidden'); startBinBtn.classList.remove('hidden');
+      cancelAnimationFrame(animId);
+      waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+    }
+
+    function updateOscillators() {
+      if (!binPlaying) return;
+      oscLeft.frequency.value  = +baseFreqEl.value;
+      oscRight.frequency.value = +baseFreqEl.value + +beatFreqEl.value;
+    }
+
+    function drawWave() {
+      waveCanvas.width  = waveCanvas.clientWidth  * devicePixelRatio;
+      waveCanvas.height = waveCanvas.clientHeight * devicePixelRatio;
+      waveCtx.scale(devicePixelRatio, devicePixelRatio);
+      function frame() {
+        const w = waveCanvas.clientWidth, h = waveCanvas.clientHeight;
+        waveCtx.clearRect(0, 0, w, h);
+        const base = +baseFreqEl.value, beat = +beatFreqEl.value;
+        const t = getBinCtx().currentTime;
+        /* Left */
+        waveCtx.beginPath(); waveCtx.strokeStyle = '#14B8A6'; waveCtx.lineWidth = 1.5;
+        for (let x = 0; x < w; x++) {
+          const y = Math.sin(2 * Math.PI * base * (t + x / 500)) * (h * 0.22) + h * 0.3;
+          x === 0 ? waveCtx.moveTo(x, y) : waveCtx.lineTo(x, y);
+        }
+        waveCtx.stroke();
+        /* Right */
+        waveCtx.beginPath(); waveCtx.strokeStyle = '#06B6D4'; waveCtx.lineWidth = 1.5;
+        for (let x = 0; x < w; x++) {
+          const y = Math.sin(2 * Math.PI * (base + beat) * (t + x / 500)) * (h * 0.22) + h * 0.7;
+          x === 0 ? waveCtx.moveTo(x, y) : waveCtx.lineTo(x, y);
+        }
+        waveCtx.stroke();
+        animId = requestAnimationFrame(frame);
+      }
+      frame();
+    }
+
+    startBinBtn.addEventListener('click', startBinaural);
+    stopBinBtn.addEventListener('click',  stopBinaural);
+    updateFreqDisplays();
+
+    /* ── Meditation timer ────────────────────────────────── */
+    const meditationModal  = document.getElementById('meditationModal');
+    const meditationTitle  = document.getElementById('meditationTitle');
+    const meditationDesc   = document.getElementById('meditationDesc');
+    const timerDisplay     = document.getElementById('timerDisplay');
+    const timerCircle      = document.getElementById('timerCircle');
+    const startTimerBtn    = document.getElementById('startTimerBtn');
+    const pauseTimerBtn    = document.getElementById('pauseTimerBtn');
+    const stopTimerBtn     = document.getElementById('stopTimerBtn');
+
+    let timerInterval, timeLeft = 0, totalTime = 0;
+    const CIRC = 2 * Math.PI * 44;
+
+    const meditationData = {
+      breath: { title: 'Breath Awareness',   desc: 'Focus on your breath, allowing thoughts to come and go without judgment.', duration: 10 },
+      body:   { title: 'Body Scan',           desc: 'Bring awareness to each part of your body, releasing tension as you go.', duration: 15 },
+      loving: { title: 'Loving-Kindness',     desc: 'Cultivate compassion for yourself and others through gentle Metta phrases.', duration: 20 },
+    };
+
+    document.querySelectorAll('.guided-meditation-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-meditation');
+        const data = meditationData[type];
+        meditationTitle.textContent = data.title;
+        meditationDesc.textContent  = data.desc;
+        totalTime = timeLeft = data.duration * 60;
+        updateTimerDisplay();
+        timerCircle.style.strokeDashoffset = CIRC;
+        clearInterval(timerInterval);
+        startTimerBtn.classList.remove('hidden');
+        pauseTimerBtn.classList.add('hidden');
+        openModal('meditationModal');
+      });
+    });
+
+    function updateTimerDisplay() {
+      const m = Math.floor(timeLeft / 60);
+      const s = timeLeft % 60;
+      timerDisplay.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      const progress = totalTime > 0 ? (1 - timeLeft / totalTime) : 0;
+      timerCircle.style.strokeDashoffset = CIRC * (1 - progress);
+    }
+
+    startTimerBtn.addEventListener('click', () => {
+      if (timeLeft <= 0) return;
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          startTimerBtn.classList.remove('hidden');
+          pauseTimerBtn.classList.add('hidden');
+        }
+      }, 1000);
+      startTimerBtn.classList.add('hidden');
+      pauseTimerBtn.classList.remove('hidden');
+    });
+
+    pauseTimerBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      pauseTimerBtn.classList.add('hidden');
+      startTimerBtn.classList.remove('hidden');
+    });
+
+    stopTimerBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timeLeft = totalTime;
+      updateTimerDisplay();
+      timerCircle.style.strokeDashoffset = CIRC;
+      startTimerBtn.classList.remove('hidden');
+      pauseTimerBtn.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
