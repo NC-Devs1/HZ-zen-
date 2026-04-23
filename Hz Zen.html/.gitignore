@@ -75,3 +75,4 @@ out/
 CLAUDE-2.md
 CLAUDE*.md
 !README.md
+.vercel
