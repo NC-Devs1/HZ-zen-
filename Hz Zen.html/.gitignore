@@ -66,3 +66,12 @@ out/
 
 # ── Puppeteer cache ──────────────────────────────────
 .cache/
+
+# ── Reference / backup text files ────────────────────
+*.txt
+*.rtf
+
+# ── Claude / AI session files ─────────────────────────
+CLAUDE-2.md
+CLAUDE*.md
+!README.md
